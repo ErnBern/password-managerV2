@@ -197,6 +197,16 @@ class addPassword:
             self.app = array[0]
             self.email = array[1]
             self.username = array[2]
+            #If the anything is blank, set it to something random
+            #So it doesn't cause an error
+            if self.app == '':
+                self.app = 'siaosdhaoishdoiahaosisjda;]['
+            if self.email == '':
+                self.email = 'siaosdhaoishdoiahaosisjda;]['
+            if self.password == '':
+                self.password = 'siaosdhaoishdoiahaosisjda;]['
+            if self.username == '':
+                self.username = 'siaosdhaoishdoiahaosisjda;]['
             with open('passwords.txt', 'rb') as file:
                 passwords_array = file.readlines()
                 place = len(passwords_array)
@@ -359,6 +369,11 @@ def mainpage():
         decrypted_info = decrypt(info.strip().encode('utf-8'), key).split(" ")
         information.append(decrypted_info)
     for info in information:
+        #Reverting the random values to blank
+        if info[1] == 'siaosdhaoishdoiahaosisjda;][': info[1] = ''
+        if info[2] == 'siaosdhaoishdoiahaosisjda;][': info[2] = ''
+        if info[3] == 'siaosdhaoishdoiahaosisjda;][': info[3] = ''
+        if info[4] == 'siaosdhaoishdoiahaosisjda;][': info[4] = ''
         #Writing and resizing the window
         CTkLabel(master=app, text=f"{info[0]}.").grid(padx=10, column=0, row=starting_row, sticky='w')
         CTkLabel(master=app, text=f'{info[1]}').grid(padx=150, column=0, row=starting_row, sticky='w')
@@ -374,7 +389,7 @@ def mainpage():
         font = tkFont.Font(family='default', size=size)
         pw_width = font.measure(f"{info[4]}")
         pw_text.configure(state='disabled', width=pw_width, text_font=font)
-        height += 20
+        height += 25
         starting_row += 1
     width += 20
     app.geometry(f'{width}x{height}')

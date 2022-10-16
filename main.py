@@ -331,7 +331,7 @@ def mainpage():
     CTkLabel(master=app, text='Order:', text_font=('default', 12)).grid(padx=10, column=0, row=starting_row, sticky='w')
     CTkLabel(master=app, text='App/Website:', text_font=('default', 12)).grid(padx=150, column=0, row=starting_row, sticky='w')
     CTkLabel(master=app, text='Email:', text_font=('default', 12)).grid(padx=275, column=0, row=starting_row)
-    CTkLabel(master=app, text='User:', text_font=('default', 12)).grid(padx=175,column=0, row=starting_row, sticky='e')
+    CTkLabel(master=app, text='Username:', text_font=('default', 12)).grid(padx=175,column=0, row=starting_row, sticky='e')
     CTkLabel(master=app, text='Password:', text_font=('default', 12)).grid(padx=10, column=0, row=starting_row, sticky='e')
     try:
         with open('passwords.txt', 'r') as f:

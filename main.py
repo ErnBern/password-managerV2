@@ -49,7 +49,6 @@ def gen_master_pw(password):
         master_string = file.readlines()
         with open('masterpw.txt', 'a+') as f:
             f.write(master_key.decode('utf8'))
-        master_key = master_string[1].encode('utf-8')
         decrypted_master_password = password
     mainpage()
     return

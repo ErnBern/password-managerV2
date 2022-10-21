@@ -315,7 +315,7 @@ class deletePassword:
             file.write(key.decode('utf-8'))
             #Writing the new info
             for info in new_info:
-                record = encrypt(f'{info[0]} {info[1]} {info[2]} {info[3]}\n'.encode('utf-8'), key)
+                record = encrypt(f'{info[0]} {info[1]} {info[2]} {info[3]} {info[4]}\n'.encode('utf-8'), key)
                 file.write(f'{record}\n')
             file.close()
             mainpage()
